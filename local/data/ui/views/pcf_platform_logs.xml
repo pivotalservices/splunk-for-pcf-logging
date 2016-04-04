@@ -1,0 +1,12 @@
+<dashboard>
+  <label>PCF Platform Logs</label>
+  <description>Top 10 logging components</description>
+  <row>
+    <panel>
+      <chart>
+        <title>Top 10 Component Logs by Time</title>
+        <search ref="PCF Component Log Message Count"></search>
+      </chart>
+    </panel>
+  </row>
+</dashboard>
