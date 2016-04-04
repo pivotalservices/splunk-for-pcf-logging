@@ -1,0 +1,16 @@
+[app/install/install_source_checksum]
+version = 6.3.3
+modtime = 1459279337.727376000
+
+[transforms/rfc5424_job_and_index]
+access = read : [ * ], write : [ admin ]
+export = system
+owner = admin
+version = 6.3.3
+modtime = 1459792775.135022000
+
+[props/rfc5424_syslog/EXTRACT-job_and_index%2Cevent_body]
+access = read : [ * ], write : [ admin ]
+owner = admin
+version = 6.3.3
+modtime = 1459797661.581899000
