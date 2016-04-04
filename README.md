@@ -1,1 +1,1 @@
-# splunk-for-pcf-logs
+# splunk-for-pcf-logging
