@@ -76,4 +76,11 @@
       </chart>
     </panel>
   </row>
+  <row>
+    <panel>
+      <event>
+        <search ref="App Logs"></search>
+      </event>
+    </panel>
+  </row>
 </dashboard>
