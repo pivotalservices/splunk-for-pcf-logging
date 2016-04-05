@@ -1,0 +1,36 @@
+<form>
+  <label>Spring Music</label>
+  <fieldset submitButton="false" autoRun="true">
+    <input type="time" token="field1">
+      <label></label>
+      <default>
+        <earliest>0</earliest>
+        <latest></latest>
+      </default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <event>
+        <title>Spring Music Logs</title>
+        <search>
+          <query>index=* OR index=_* sourcetype=rfc5424_syslog | rex field=_raw \"source_type\":\"+(?&lt;source_type&gt;\w+)\" | rex field=_raw \"message_type\":\"+(?&lt;message_type&gt;\w+)\" | rex field=_raw \"event_type\":\"+(?&lt;event_type&gt;\w+)\" | rex field=_raw \"cf_app_name\":\"+(?&lt;cf_app_name&gt;.*?)\" | rex field=_raw \"msg\":\"+(?&lt;msg&gt;.*?)\".\"origin\" | rex field=_raw \"timestamp\":(?&lt;timestamp&gt;\d*)\} | search cf_app_name="spring-music" source_type="APP" | table timestamp msg message_type | sort timestamp</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="list.drilldown">full</option>
+        <option name="list.wrap">1</option>
+        <option name="maxLines">5</option>
+        <option name="raw.drilldown">full</option>
+        <option name="rowNumbers">0</option>
+        <option name="table.drilldown">all</option>
+        <option name="table.wrap">1</option>
+        <option name="type">table</option>
+        <option name="wrap">true</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="count">100</option>
+        <fields>["timestamp","msg","message_type"]</fields>
+      </event>
+    </panel>
+  </row>
+</form>
