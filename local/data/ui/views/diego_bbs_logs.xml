@@ -1,0 +1,26 @@
+<dashboard>
+  <label>Diego BBS Logs</label>
+  <description>Diego BBS Logs</description>
+  <row>
+    <panel>
+      <event>
+        <title>Diego BBS Logs</title>
+        <search>
+          <query>index=* sourcetype=rfc5424_syslog event_body="{*}" | spath input=event_body output=event_type path=event_type | spath input=event_body output=name path=name | spath input=event_body output=origin path=origin | spath input=event_body output=msg path=msg | spath input=event_body output=source path=source | search "source" = "bbs"</query>
+          <earliest></earliest>
+          <latest></latest>
+        </search>
+        <fields>["source","job_and_index","event_body","event_source","log_level","job","message","statsd_message","guages","n","statsd_messages","opentsdb.nozzle.MetronAgent.dropsondeAgentListener.receivedMessageCount","opentsdb.nozzle.DopplerServer.numGoRoutines","opentsdb.nozzle.DopplerServer.messageRouter.numberOfFirehoseSinks","opentsdb.nozzle.DopplerServer.memoryStats.lastGCPauseTimeNS","opentsdb.nozzle.DopplerServer.httpServer.receivedMessages","opentsdb.nozzle.DopplerServer.messageRouter.numberOfDumpSinks","opentsdb.nozzle.MetronAgent.dropsondeAgentListener.receivedByteCount","etcd.server.ReceivingRequestRate","etcd.server.ReceivingBandwidthRate","etcd.server.ReceivedAppendRequests"]</fields>
+        <option name="table.sortDirection">asc</option>
+        <option name="list.drilldown">full</option>
+        <option name="list.wrap">1</option>
+        <option name="maxLines">5</option>
+        <option name="raw.drilldown">full</option>
+        <option name="rowNumbers">0</option>
+        <option name="table.drilldown">all</option>
+        <option name="table.wrap">1</option>
+        <option name="type">table</option>
+      </event>
+    </panel>
+  </row>
+</dashboard>
